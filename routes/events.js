@@ -9,15 +9,7 @@ const router = Router();
 
 router.use(validarJWT)
 
-router.get(
-    '/',
-    [
-        check('title', 'El titulo es obligatorio').not().isEmpty(),
-        check('start', 'fecha de inicio es obligatoria').custom(isDate),
-        check('end', 'fecha de finalizacion es obligatoria').custom(isDate),
-        validarCampos
-    ]
-    ,getEventos)
+router.get('/',getEventos)
 
 router.post('/', [ [
     check('title', 'El titulo es obligatorio').not().isEmpty(),
